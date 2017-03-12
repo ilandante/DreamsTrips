@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container"
+         style="width:100%; padding-left:0; margin-left:0; padding-right:0; margin-right:0; ">
+
+        <div class="row">
+            <div class="col l12 s12">
+                <div class="col l12 s12"
+                     style="background-color: #4AB9B2; color:white; ">
+                    <div class="col l5 s5" style="margin-top:25px;">
+                        <img src="{{ trip.circle_photograph.url }}"
+                             style="width:500px; height:auto; margin-bottom:15px;">
+                    </div>
+
+                    <div class="col l7 s7" style="margin-top:25px;">
+                        <div class="col l12 s12">
+                            <p>{{ trip.description }}</p>
+
+                            <p><b>COSTO GENERAL POR
+                                PERSONA: </b><br>${{ trip.price_per_person }}
+                            </p>
+
+                            <p>{% for item in itinerary_items %}
+                                {{ item.description }}<br>
+                            {% endfor %}
+                            </p>
+                        </div>
+                    <div class="col l12 s12">
+                        <a href="{% url 'team' %}"><img src="{% static 'images/botones_boton_reserva.png' %}" align="right" style="width:27%;"></a>
+                        <img src="{% static 'images/botones_boton_itininerio.png' %}" align="left" style="width:30%;">
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

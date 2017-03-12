@@ -1,0 +1,23 @@
+/*---------------FONTS-----------------*/
+@font-face {
+    font-family: Beyond-The-Mountains;
+    src: url('../fonts/beyond_the_mountains.ttf');
+}
+
+
+nav {
+    background-color: white;
+    color: black;
+    height: 140px;
+}
+
+
+footer.page-footer {
+    background-color: white;
+    color: black;
+}
+
+.dream-blue{
+
+    background-color: #4AB9B2;
+}

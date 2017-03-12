@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container" style="width:100%; padding-left:0; margin-left:0; padding-right:0; margin-right:0;">
+
+    <div class="carousel carousel-slider">
+        {% for member in object_list %}
+            <a class="carousel-item" href="{% url 'single_trip' trip_pk=trip.pk %}"><img src="{{ trip.photograph.url }}" style="height:100%"></a>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+<script>
+$(document).ready(function(){
+
+     $('.carousel.carousel-slider').carousel({fullWidth: true});
+});
+
+</script>
+{% endblock %}

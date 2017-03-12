@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container" style="width:100%; padding-left:0; margin-left:0">
+
+    <div class="row">
+    <div class="col l12 s12">
+        <div class="col l8 s8" style="background-color: #51d1ce; color:white; min-height:415px;">
+            <div class="col l12 s12" style="margin-top:25px;">
+                <p>DREAMS TRIPS es una empresa turística dedicada a la
+                    intermediación, organización y realización de proyectos,
+                    planes e itinerarios, además, de la elaboración y venta de
+                productos turísticos (Hospedajes, vuelos, etc.) a sus clientes
+                y determinados proveedores de viajes.</p>
+            </div>
+
+        <div class="col l12 s12" style="margin-top:25px;">
+            <div class="col l6 s6">
+                MISIÓN
+                <p>Brindar el mejor servicio superando las expectativas de
+                nuestros dreamers con el fin de lograr una plena satisfacción
+                mediante productos turísticos a precios competitivos que les
+                permitan realizar viajes para un desarrollo placentero.</p>
+            </div>
+            <div class="col l6 s6">
+                VISIÓN
+                <p>Ser una cadena de agencias de viajes virtuales confiables y
+                seguras, que ofrezcan tranquilidad yun excelene servicio a
+                nuestros dreamers en viajes dentro y fuera del país.</p>
+            </div>
+        </div></div>
+
+        <div class="col l4 s4" align="center">
+
+            <img src="{% static 'images/dreams_logo.png' %}" style="margin-top: 20px;">
+
+            <img src="{% static 'images/conoce_button.png' %}" style="margin-top: 20px;">
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
