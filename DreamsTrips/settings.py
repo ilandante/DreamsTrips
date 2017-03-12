@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dreams_db',
-        'USER': 'postgres',
-        'PASSWORD': '',
+        'USER': 'dreamworker',
+        'PASSWORD': 'fadetoblack13',
         'HOST': 'localhost',
         'PORT': '',
     }
