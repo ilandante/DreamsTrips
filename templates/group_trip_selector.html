@@ -6,8 +6,8 @@
     <div class="carousel carousel-slider">
         {% for trip in object_list %}
             <a class="carousel-item" href="{% url 'single_trip' trip_pk=trip.pk %}">
-                {{ trip.photograph }}
-                {% if trip.photograph.url %}
+
+                {% if trip.photograph %}
                 <img src="{{ trip.photograph.url }}" style="height:100%; width:auto;">
                 {% endif %}
             </a>
