@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'profiles',
     'finances',
     'locations',
+    'rbac',
 ]
 
 MIDDLEWARE = [
