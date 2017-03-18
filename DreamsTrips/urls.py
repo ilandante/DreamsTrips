@@ -18,7 +18,8 @@ import django.views.static
 from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
-from DreamsTrips.views import home_view, mission_view, team_view
+from DreamsTrips.views import home_view, mission_view, \
+    DreamWorkersListView
 from trips import urls as trips_urls
 
 urlpatterns = [
@@ -27,7 +28,7 @@ urlpatterns = [
     # Project apps
     url(r'^$', home_view, name='home'),
     url(r'^mission/$', mission_view, name='mission'),
-    url(r'^team/$', team_view, name='team'),
+    url(r'^team/$', DreamWorkersListView.as_view(), name='team'),
     url(r'^trips/', include(trips_urls)),
     # url(r'^profile/', include('profiles.urls')),
 

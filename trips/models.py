@@ -66,6 +66,9 @@ class Trip(models.Model):
     circle_photograph = models.ImageField(upload_to='galleries', blank=True,
                                           null=True)
 
+    itinerary_file = models.FileField(upload_to='trip_files', blank=True,
+                                      null=True, verbose_name='itinerario')
+
     def __str__(self):
         return self.title
 
@@ -139,7 +142,7 @@ class TripGallery(models.Model):
     trip = models.ForeignKey(Trip, verbose_name='viaje')
 
     def __str__(self):
-        return self.name
+        return self.trip.title
 
 
 @python_2_unicode_compatible
@@ -149,4 +152,4 @@ class GalleryImage(models.Model):
     photograph = models.FileField(upload_to='galleries')
 
     def __str__(self):
-        return self.name
+        return self.gallery.trip.title

@@ -26,16 +26,7 @@ def mission_view(request):
     return render(request, 'mission.html', context=context)
 
 
-def team_view(request):
-    reviews_list = []
-
-    context = {'reviews': reviews_list, 'exp_pics': '',
-               'request': request, 'user': request.user,
-               'profile': '', 'experiences': ''}
-    return render(request, 'team.html', context=context)
-
-
-class DreamworkersListView(ListView):
+class DreamWorkersListView(ListView):
     """
         View for list of dreamworkers.
         Returns a list of trips along with their pic for the carousel
@@ -46,20 +37,17 @@ class DreamworkersListView(ListView):
     model = Profile
     paginate_by = 50
     user = None
-    trips = None
 
     def get_queryset(self, **kwargs):
         print self.request.GET
-        trip = Trip.objects.filter(active=1)
+        dream_workers = Profile.objects.filter(auth_user__is_active=1,
+                                               is_dream_worker=1)
 
-        self.trips = trip
         self.user = self.request.user
 
-        return trip
+        return dream_workers
 
     def get_context_data(self, **kwargs):
-        context = super(TripsListView, self).get_context_data(**kwargs)
-
-        # context['experiences'] = self.trips
+        context = super(DreamWorkersListView, self).get_context_data(**kwargs)
 
         return context

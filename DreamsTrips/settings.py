@@ -24,7 +24,7 @@ PROJECT_PATH = os.path.abspath(
 SECRET_KEY = '@cdm(e*(4vm7fs!93)dlygejmr8j%vxz0cv(x#jz40xa5+n&ph'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 ADMINS = [('Rafael Moreno', 'rafasylver@hotmail.com')]
