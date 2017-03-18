@@ -1,27 +1,25 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block content %}
-<div style="background-color: #4AB9B2; background-size:100%, auto; height:500px " >
+<div style="background-color: #4AB9B2; background-size:100%, auto; min-height:500px " >
 <div class="row" align="center">
     <div class="col l12">
-        <div class="col l4" align="center">
-            <a href="{% url "trips" %}" style="bottom: 200px; position: absolute; width:10%; left: 100px;">
+        <div class="col l4 s12" align="center">
+            <a href="{% url "trips" %}" style="width:10%;">
 {#                <img src="{% static 'images/btn_group_trips.png' %}" style="width:95%;">#}
-
-
-                <img src="{% static 'images/viajes_grupales_icon.png' %}" style="width:95%;"
+                <img src="{% static 'images/viajes_grupales_icon.png' %}" style="width:200px; margin-top:140px"
                     onmouseover="this.src='{% static 'images/viajes_grupales_text.png' %}'"
                     onmouseout="this.src='{% static 'images/viajes_grupales_icon.png' %}'"
                 border="0" alt=""/>
             </a>
         </div>
-         <div class="col l4" align="center">
-            <img src="{% static 'images/dreams_logo_white.png' %}" style="width:20%; bottom: 100px; position: absolute;">
+         <div class="col l4 s12" align="center" >
+            <img src="{% static 'images/dreams_logo_white.png' %}" style="width:400px;">
         </div>
-        <div class="col l4" align="center">
-            <a href="#cotizModal" style="bottom: 200px; position: absolute; width:10%; ">
+        <div class="col l4 s12" align="center">
+            <a href="#cotizModal" style="width:100px; ">
 {#                <img src="{% static 'images/btn_private_trips.png' %}" style="width:95%;">#}
-                <img src="{% static 'images/viajes_privados_icon.png' %}" style="width:95%;"
+                <img src="{% static 'images/viajes_privados_icon.png' %}" style="width:200px; margin-top:140px"
                     onmouseover="this.src='{% static 'images/viajes_privados_text.png' %}'"
                     onmouseout="this.src='{% static 'images/viajes_privados_icon.png' %}'"
                 border="0" alt=""/>

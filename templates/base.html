@@ -1,4 +1,4 @@
-{%  load staticfiles %}
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,36 +7,48 @@
 
     <link href="{% static 'css/materialize.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/custom.css' %}" rel="stylesheet"/>
- <link href="{% static 'font-awesome/css/font-awesome.css' %}" rel="stylesheet"/>
-    {%  block css %}
+    <link href="{% static 'font-awesome/css/font-awesome.css' %}"
+          rel="stylesheet"/>
+    {% block css %}
     {% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
 <nav>
     <div class="row">
-       <div class="col-md-12">
-        <div class="col-md-4">
-{#            <img src="{% static 'images/dreams_logo.png' %}" style="width:30%;">#}
-        </div>
-           <div class="col-md-8">
-               <div class="col-md-12" align="center">
-{#                   <a class="waves-effect waves-light btn" style="bottom: 0; position: absolute;">Viaja ahora</a>#}
-{#                   &nbsp;#}
-                   <a href="{% url "trips" %}"><img src="{% static 'images/btn_travel_now.png' %}" style="width:30%;"></a>
-               </div>
-               <div class="col-md-12" style="font-family:Beyond-The-Mountains; font-size:18px;">
-                   <div class="col-md-2"><a href="{% url 'home' %}" style="color:black; ">
-                       <img src="{% static 'images/btn_home.png' %}" style=""> Inicio</a></div>
-                   <div class="col-md-3"><a href="{% url 'team' %}" style="color:black;">
-                       <img src="{% static 'images/btn_team.png' %}" style=""> Con&oacute;cenos</a></div>
-                   <div class="col-md-4">
-                       <img src="{% static 'images/btn_gallery.png' %}" style=""> Galer&iacute;a de Im&aacute;genes</div>
-                   <div class="col-md-3">
-                       <a href="#contactModal" style="color:black;"><img src="{% static 'images/btn_contact.png' %}" > Cont&aacute;ctanos</a></div>
+        <div class="col-md-12">
+            <div class="col-md-4">
+                {#            <img src="{% static 'images/dreams_logo.png' %}" style="width:30%;">#}
+            </div>
+            <div class="col-md-8">
+                <div class="col-md-12" align="center">
+                    {#                   <a class="waves-effect waves-light btn" style="bottom: 0; position: absolute;">Viaja ahora</a>#}
+                    {#                   &nbsp;#}
+                    <a href="{% url "trips" %}"><img
+                            src="{% static 'images/btn_travel_now.png' %}"
+                            style="width:30%;"></a>
+                </div>
+                <div class="col-md-12 col-sm-12"
+                     style="font-family:Beyond-The-Mountains; font-size:18px;">
+                    <div class="col-md-2 col-sm-2"><a href="{% url 'home' %}"
+                                                      style="color:black; ">
+                        <img src="{% static 'images/btn_home.png' %}" style="">
+                        Inicio</a></div>
+                    <div class="col-md-3 col-sm-3"><a href="{% url 'team' %}"
+                                                      style="color:black;">
+                        <img src="{% static 'images/btn_team.png' %}" style="">
+                        Con&oacute;cenos</a></div>
+                    <div class="col-md-4 col-sm-4">
+                        <img src="{% static 'images/btn_gallery.png' %}"
+                             style=""> Galer&iacute;a de Im&aacute;genes
+                    </div>
+                    <div class="col-md-3 col-sm-3">
+                        <a href="#contactModal" style="color:black;"><img
+                                src="{% static 'images/btn_contact.png' %}">
+                            Cont&aacute;ctanos</a></div>
 
-               </div>
-           </div>
-    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -45,101 +57,135 @@
 
 <div id="contactModal" class="modal">
     <div class="modal-content" style="font-family:Beyond-The-Mountains;">
-      <h4>Contactanos</h4>
-      <form>
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Nombre</label>
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Apellidos</label>
-          <input id="email" type="email" class="validate">
-          <label for="email">E-mail</label>
-          <textarea id="comment" class="materialize-textarea"></textarea>
-          <label for="comment">Textarea</label>
-    </textarea>
+        <h4>Contactanos</h4>
 
-      </form>
+        <form id="contactForm" action="{% url 'send_contact_message' %}" method="post">
+            {% csrf_token %}
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">Nombre</label>
+
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Apellidos</label>
+
+            <input id="phone" type="text" class="validate">
+            <label for="phone">Tel&eacute;efono</label>
+
+            <input id="email" type="phone" class="validate">
+            <label for="email">E-mail</label>
+
+            <textarea id="comment" class="materialize-textarea" name="comment"></textarea>
+            <label for="comment">Comentarios</label>
+            </textarea>
+
+        </form>
+         <button class="btn waves-effect waves-light" id="send_message">Enviar
+         </button>
+
     </div>
-  </div>
+</div>
 
 <div id="cotizModal" class="modal">
     <div class="modal-content" style="font-family:Beyond-The-Mountains;">
         <h4>Pide tu cotizaci&oacute;n</h4>
+
         <form>
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">Nombre</label>
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Apellidos</label>
-          <input id="email" type="email" class="validate">
-          <label for="email">E-mail</label>
+            <input id="first_name" type="text" class="validate">
+            <label for="first_name">Nombre</label>
+            <input id="last_name" type="text" class="validate">
+            <label for="last_name">Apellidos</label>
             <input id="email" type="email" class="validate">
-          <label for="email">Tel&eacute;fono</label>
-          <textarea placeholder="Cuentanos sobre tu viaje perfecto y nosotros te contactaremos para hacerlo realidad."
+            <label for="email">E-mail</label>
+            <input id="email" type="email" class="validate">
+            <label for="email">Tel&eacute;fono</label>
+          <textarea
+                  placeholder="Cuentanos sobre tu viaje perfecto y nosotros te contactaremos para hacerlo realidad."
                   id="comment" class="materialize-textarea"></textarea>
-          <label for="comment"></label>
-      </form>
+            <label for="comment"></label>
+            <a class="waves-effect waves-light btn" >Enviar</a>
+        </form>
     </div>
-  </div>
+</div>
 {% block content %}
 
 {% endblock %}
 </body>
 <footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l12 s12" align="center">
-
-               <a class="btn-floating btn-large waves-effect waves-light dream-blue facebook-rounded"
-                       href="https://www.facebook.com/DREAMSTRIPS02/" target="_blank">
-               <i class="fa fa-facebook" aria-hidden="true"></i>
+    <div class="container">
+        <div class="row">
+            <div class="col l12 s12" align="center">
+                <a class="btn-floating btn-large waves-effect waves-light dream-blue facebook-rounded margin-10"
+                   href="https://www.facebook.com/DREAMSTRIPS02/"
+                   target="_blank">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
-                  <a class="btn-floating btn-large waves-effect waves-light dream-blue"
-                          target="_blank">
-                <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                <a class="btn-floating btn-large waves-effect waves-light dream-blue margin-10"
+                   target="_blank">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
                 </a>
-                  <a class="btn-floating btn-large waves-effect waves-light dream-blue"
-                          target="_blank">
-               <i class="fa fa-instagram" aria-hidden="true"></i>
+                <a class="btn-floating btn-large waves-effect waves-light dream-blue margin-10"
+                   target="_blank">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
-                  <a class="btn-floating btn-large waves-effect waves-light dream-blue"
-                          href="https://twitter.com/Dreams_Trips" target="_blank">
-                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <a class="btn-floating btn-large waves-effect waves-light dream-blue margin-10"
+                   href="https://twitter.com/Dreams_Trips" target="_blank">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
-                  </a>
-                  <a class="btn-floating btn-large waves-effect waves-light dream-blue"
-                          href="https://youtu.be/thCp9RKYgj4" target="_blank">
-                <i class="fa fa-youtube-play" aria-hidden="true"></i>
                 </a>
-              </div>
-                <div class="col l12 s12" align="center">
-                    Dreams Trips | Privacy Policy
-                </div>
+                <a class="btn-floating btn-large waves-effect waves-light dream-blue margin-10"
+                   href="https://youtu.be/thCp9RKYgj4" target="_blank">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                </a>
             </div>
-          </div>
+            <div class="col l12 s12" align="center">
+                Dreams Trips | Privacy Policy
+            </div>
+        </div>
+    </div>
 
-        </footer>
+</footer>
 
 <script src="{% static 'jQuery/jQuery-2.1.4.min.js' %}"></script>
 <script src="{% static 'bs3/js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/materialize.js' %}"></script>
 {% block js %}
     <script>
-    $(document).ready(function(){
-    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal').modal();
+        $(document).ready(function () {
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+
+            $(".facebook-rounded").on('click', function () {
+                console.log("FACEBOOK");
+                window.open("https://www.facebook.com/sharer/sharer.php?u={{ request.path }}", '_blank')
+            });
+            $(".twitter-rounded").on('click', function () {
+                window.open("https://twitter.com/home?status={{ request.path }}", '_blank')
+            });
+            $(".google-rounded").on('click', function () {
+                window.open("https://plus.google.com/share?url={{ request.path }}", '_blank')
+            });
 
 
-    $(".facebook-rounded").on('click', function () {
-        console.log("FACEBOOK");
-        window.open("https://www.facebook.com/sharer/sharer.php?u={{ request.path }}", '_blank')
-    });
-    $(".twitter-rounded").on('click', function () {
-        window.open("https://twitter.com/home?status={{ request.path }}", '_blank')
-    });
-    $(".google-rounded").on('click', function () {
-        window.open("https://plus.google.com/share?url={{ request.path }}", '_blank')
-    });
+            $("#send_message").on('click', function () {
+                var data = new FormData($('#contactForm').get(0));
 
-  });
+                var send_message_url = "{% url 'send_contact_message' %}";
+                $.ajax({
+                    url: send_message_url,
+                    type: "post",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        Materialize.toast('Mensaje Enviado!', 4000)
+                    },
+                    error: function (data) {
+                        console.log('ERROR', data);
+                        Materialize.toast('Tu mensaje no pudo ser enviado. Inténtalo de nuevomás tarde', 4000)
+                    }
+                });
+            });
+
+        });
     </script>
 {% endblock %}
 

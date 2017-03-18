@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
 from django.shortcuts import render
 from django.views.generic import ListView
 from profiles.models import Profile
+from python_recipes import response_json
 
 __author__ = 'root'
 
@@ -51,3 +53,21 @@ class DreamWorkersListView(ListView):
         context = super(DreamWorkersListView, self).get_context_data(**kwargs)
 
         return context
+
+
+def send_contact_message(request):
+    if request.method == "POST":
+        message = request.POST.get('comment', None)
+
+        send_mail(
+            'Web Page Comment',
+            message,
+            'rmoreno.ter@gmail.com',
+            ['rmoreno.ter@gmail.com'],
+            fail_silently=False,
+        )
+
+        return response_json('mail sent', 200)
+
+    else:
+        return response_json("Method not allowed", 409)

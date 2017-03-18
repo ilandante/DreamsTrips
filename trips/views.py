@@ -88,21 +88,3 @@ class ViewTrip(DetailView):
         context['itinerary_items'] = itinerary_items
 
         return context
-
-
-def send_comment(request, hosting_pk):
-    if request.method == "POST":
-        message = request.POST.get('comment', None)
-
-        # send_mail(
-        #     'Web Page Comment',
-        #     message,
-        #     'rafasylver@hotmail.com',
-        #     ['rafasylver@hotmail.com.com'],
-        #     fail_silently=False,
-        # )
-
-        return response_json('mail sent', 200)
-
-    else:
-        return response_json("Method not allowed", 409)

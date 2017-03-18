@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from DreamsTrips.views import home_view, mission_view, \
-    DreamWorkersListView
+    DreamWorkersListView, send_contact_message
 from trips import urls as trips_urls
 
 urlpatterns = [
@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'^team/$', DreamWorkersListView.as_view(), name='team'),
     url(r'^trips/', include(trips_urls)),
     # url(r'^profile/', include('profiles.urls')),
+    url(r'^send_contact_message/', send_contact_message, name="send_contact_message"),
 
     url(r'^static/(?P<path>.*)$', django.views.static.serve,
         {'document_root': settings.STATIC_ROOT}),
