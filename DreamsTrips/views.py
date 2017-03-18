@@ -57,10 +57,41 @@ class DreamWorkersListView(ListView):
 
 def send_contact_message(request):
     if request.method == "POST":
-        message = request.POST.get('comment', None)
+        comment = request.POST.get('comment', None)
+        first_name = request.POST.get('comment', None)
+        last_name = request.POST.get('comment', None)
+        phone = request.POST.get('comment', None)
+        email = request.POST.get('comment', None)
+
+
+        message = first_name + last_name + phone + email + comment
 
         send_mail(
             'Web Page Comment',
+            message,
+            'rmoreno.ter@gmail.com',
+            ['rmoreno.ter@gmail.com'],
+            fail_silently=False,
+        )
+
+        return response_json('mail sent', 200)
+
+    else:
+        return response_json("Method not allowed", 409)
+
+
+def send_quote_request(request):
+    if request.method == "POST":
+        comment = request.POST.get('comment', None)
+        first_name = request.POST.get('comment', None)
+        last_name = request.POST.get('comment', None)
+        phone = request.POST.get('comment', None)
+        email = request.POST.get('comment', None)
+
+        message = first_name + last_name + phone + email + comment
+
+        send_mail(
+            'Cotization Request',
             message,
             'rmoreno.ter@gmail.com',
             ['rmoreno.ter@gmail.com'],

@@ -70,7 +70,7 @@
             <input id="phone" type="text" class="validate">
             <label for="phone">Tel&eacute;efono</label>
 
-            <input id="email" type="phone" class="validate">
+            <input id="email" type="email" class="validate">
             <label for="email">E-mail</label>
 
             <textarea id="comment" class="materialize-textarea" name="comment"></textarea>
@@ -88,7 +88,7 @@
     <div class="modal-content" style="font-family:Beyond-The-Mountains;">
         <h4>Pide tu cotizaci&oacute;n</h4>
 
-        <form>
+        <form id="cotizationRequest">
             <input id="first_name" type="text" class="validate">
             <label for="first_name">Nombre</label>
             <input id="last_name" type="text" class="validate">
@@ -97,12 +97,15 @@
             <label for="email">E-mail</label>
             <input id="email" type="email" class="validate">
             <label for="email">Tel&eacute;fono</label>
+
           <textarea
                   placeholder="Cuentanos sobre tu viaje perfecto y nosotros te contactaremos para hacerlo realidad."
                   id="comment" class="materialize-textarea"></textarea>
             <label for="comment"></label>
-            <a class="waves-effect waves-light btn" >Enviar</a>
+
         </form>
+        <button class="btn waves-effect waves-light" id="send_cotization_request">Enviar
+         </button>
     </div>
 </div>
 {% block content %}
@@ -181,6 +184,26 @@
                     error: function (data) {
                         console.log('ERROR', data);
                         Materialize.toast('Tu mensaje no pudo ser enviado. Inténtalo de nuevomás tarde', 4000)
+                    }
+                });
+            });
+
+            $("#send_cotization_request").on('click', function () {
+                var data = new FormData($('#cotizationRequest').get(0));
+                var send_message_url = "{% url 'send_contact_message' %}";
+                $.ajax({
+                    url: send_message_url,
+                    type: "post",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        Materialize.toast('Mensaje Enviado!', 4000)
+                    },
+                    error: function (data) {
+                        console.log('ERROR', data);
+                        Materialize.toast('Tu mensaje no pudo ser enviado. ' +
+                                'Inténtalo de nuevo más tarde', 4000)
                     }
                 });
             });
