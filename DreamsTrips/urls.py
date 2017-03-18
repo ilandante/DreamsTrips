@@ -19,7 +19,7 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from DreamsTrips.views import home_view, mission_view, \
-    DreamWorkersListView, send_contact_message, send_quote_request
+    DreamWorkersListView, send_contact_message, send_quote_request, policy_view
 from trips import urls as trips_urls
 
 urlpatterns = [
@@ -28,6 +28,7 @@ urlpatterns = [
     # Project apps
     url(r'^$', home_view, name='home'),
     url(r'^mission/$', mission_view, name='mission'),
+    url(r'^policies/$', policy_view, name='politicas'),
     url(r'^team/$', DreamWorkersListView.as_view(), name='team'),
     url(r'^trips/', include(trips_urls)),
     # url(r'^profile/', include('profiles.urls')),

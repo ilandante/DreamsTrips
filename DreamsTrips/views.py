@@ -102,3 +102,11 @@ def send_quote_request(request):
 
     else:
         return response_json("Method not allowed", 409)
+
+
+def policy_view(request):
+    reviews_list = []
+    context = {'reviews': reviews_list, 'exp_pics': '',
+               'request': request, 'user': request.user,
+               'profile': '', 'experiences': ''}
+    return render(request, 'trips_policy.html', context=context)

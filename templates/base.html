@@ -55,7 +55,7 @@
 </nav>
 <body>
 
-<div id="contactModal" class="modal">
+<div id="contactModal" class="modal" style="box-shadow: none;">
     <div class="modal-content" style="font-family:Beyond-The-Mountains;">
         <h4>Contactanos</h4>
 
@@ -84,7 +84,7 @@
     </div>
 </div>
 
-<div id="cotizModal" class="modal">
+<div id="cotizModal" class="modal" style="box-shadow: none;">
     <div class="modal-content" style="font-family:Beyond-The-Mountains;">
         <h4>Pide tu cotizaci&oacute;n</h4>
 
@@ -140,7 +140,7 @@
                 </a>
             </div>
             <div class="col l12 s12" align="center">
-                Dreams Trips | Privacy Policy
+               <a href="{% url 'mission' %}">Dreams Trips</a>  | <a href="{% url 'politicas' %}">Trips Policy</a>
             </div>
         </div>
     </div>
