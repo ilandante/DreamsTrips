@@ -153,4 +153,4 @@ class GalleryImage(models.Model):
     photograph = models.FileField(upload_to='galleries')
 
     def __str__(self):
-        return self.gallery.trip.title
+        return self.photograph.url
