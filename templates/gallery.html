@@ -6,7 +6,7 @@
         {% for image in object_list %}
             <a class="carousel-item">
             {% if image.photograph %}
-                <img src="{{ image.photograph.url }}" style="height:100%">
+                <img src="{{ image.photograph.url }}" style="height:100%; width:auto;">
             {% endif %}
             </a>
         {% endfor %}
