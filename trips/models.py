@@ -147,7 +147,8 @@ class TripGallery(models.Model):
 
 @python_2_unicode_compatible
 class GalleryImage(models.Model):
-    gallery = models.ForeignKey(TripGallery, verbose_name='galeria')
+    gallery = models.ForeignKey(TripGallery, verbose_name='galeria',
+                                blank=True, null=True)
 
     photograph = models.FileField(upload_to='galleries')
 

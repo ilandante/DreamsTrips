@@ -2,18 +2,15 @@
 {% load staticfiles %}
 {% block content %}
     <div class="container" style="width:100%; padding-left:0; margin-left:0; padding-right:0; margin-right:0;">
-
-    <div class="carousel">
-        {% for trip in object_list %}
-            <a class="carousel-item" href="{% url 'single_trip' trip_pk=trip.pk %}">
-
-                {% if trip.photograph %}
-                <img src="{{ trip.photograph.url }}" style="height:100%; width:auto;">
-                {% endif %}
+    <div class="carousel" style="background-color: #4AB9B2;" align="center">
+        {% for image in object_list %}
+            <a class="carousel-item">
+            {% if image.photograph %}
+                <img src="{{ image.photograph.url }}" style="height:100%">
+            {% endif %}
             </a>
         {% endfor %}
     </div>
-
     </div>
 {% endblock %}
 

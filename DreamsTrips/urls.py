@@ -19,7 +19,8 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.contrib import admin
 from DreamsTrips.views import home_view, mission_view, \
-    DreamWorkersListView, send_contact_message, send_quote_request, policy_view
+    DreamWorkersListView, send_contact_message, send_quote_request, \
+    policy_view, GalleryListView
 from trips import urls as trips_urls
 
 urlpatterns = [
@@ -30,6 +31,7 @@ urlpatterns = [
     url(r'^mission/$', mission_view, name='mission'),
     url(r'^policies/$', policy_view, name='politicas'),
     url(r'^team/$', DreamWorkersListView.as_view(), name='team'),
+    url(r'^gallery/$', GalleryListView.as_view(), name='gallery'),
     url(r'^trips/', include(trips_urls)),
     # url(r'^profile/', include('profiles.urls')),
     url(r'^send_contact_message/', send_contact_message, name="send_contact_message"),

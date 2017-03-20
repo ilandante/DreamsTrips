@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.views.generic import ListView
 from profiles.models import Profile
 from python_recipes import response_json
+from trips.models import GalleryImage
 
 __author__ = 'root'
 
@@ -110,3 +111,28 @@ def policy_view(request):
                'request': request, 'user': request.user,
                'profile': '', 'experiences': ''}
     return render(request, 'trips_policy.html', context=context)
+
+
+class GalleryListView(ListView):
+    """
+        View for list of dreamworkers.
+        Returns a list of trips along with their pic for the carousel
+        back to the template for display
+    """
+
+    template_name = 'gallery.html'
+    model = GalleryImage
+    paginate_by = 50
+    user = None
+
+    def get_queryset(self, **kwargs):
+        print self.request.GET
+        images = GalleryImage.objects.filter()
+
+        self.user = self.request.user
+        return images
+
+    def get_context_data(self, **kwargs):
+        context = super(GalleryListView, self).get_context_data(**kwargs)
+
+        return context

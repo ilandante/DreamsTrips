@@ -15,11 +15,7 @@
 
                     <div class="col l7 s12 xs12" style="margin-top:25px;">
                         <div class="col l12 s12">
-                            <p>{{ trip.description|safe }}</p>
-
-{#                            <p><b>COSTO GENERAL POR#}
-{#                                PERSONA: </b><br>${{ trip.price_per_person }}#}
-{#                            </p>#}
+                            <p align="justify">{{ trip.description|safe }}</p>
 
                             <p>{% for item in itinerary_items %}
                                 {{ item.description }}<br>
@@ -32,6 +28,10 @@
                         </a>
                     {% if trip.itinerary_file %}
                         <a href="{{ trip.itinerary_file.url }}" target="_blank">
+                            <img src="{% static 'images/botones_boton_itininerio.png' %}" align="left" style="width:30%;">
+                        </a>
+                        {% else %}
+                        <a>
                             <img src="{% static 'images/botones_boton_itininerio.png' %}" align="left" style="width:30%;">
                         </a>
                     {% endif %}
