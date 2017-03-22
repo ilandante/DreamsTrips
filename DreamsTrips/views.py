@@ -64,13 +64,12 @@ def send_contact_message(request):
         phone = request.POST.get('comment', None)
         email = request.POST.get('comment', None)
 
-
         message = first_name + last_name + phone + email + comment
 
         send_mail(
             'Web Page Comment',
             message,
-            'rmoreno.ter@gmail.com',
+            'yoviajocondreamstrips@gmail.com',
             ['rmoreno.ter@gmail.com'],
             fail_silently=False,
         )
@@ -94,7 +93,7 @@ def send_quote_request(request):
         send_mail(
             'Cotization Request',
             message,
-            'rmoreno.ter@gmail.com',
+            'yoviajocondreamstrips@gmail.com',
             ['rmoreno.ter@gmail.com'],
             fail_silently=False,
         )
@@ -138,7 +137,7 @@ class GalleryListView(ListView):
         return context
 
 
-class ViewGallery(DetailView):
+class ViewGallery(ListView):
 
     template_name = 'single_trip_gallery.html'
     pk = None
@@ -146,15 +145,16 @@ class ViewGallery(DetailView):
     user = None
     gallery = None
 
-    def get_object(self, queryset=None):
+    def get_queryset(self, **kwargs):
 
-        self.pk = self.kwargs.get('gallery_pk', None)
+        pk = self.kwargs.get('gallery_pk', None)
 
-        if self.pk is not None:
-            self.gallery = GalleryImage.objects.filter(gallery=self.pk)
+        if pk is not None:
+            gallery = GalleryImage.objects.filter(gallery__pk=pk)
         else:
             raise AttributeError("PK No Encontrado")
-        return self.gallery
+        print gallery, 'find somethng!'
+        return gallery
 
     def get_context_data(self, **kwargs):
         context = super(ViewGallery, self).get_context_data(**kwargs)
