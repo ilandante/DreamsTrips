@@ -70,7 +70,7 @@ def send_contact_message(request):
             'Web Page Comment',
             message,
             'yoviajocondreamstrips@gmail.com',
-            ['rmoreno.ter@gmail.com'],
+            ['yoviajocondreamstrips@gmail.com'],
             fail_silently=False,
         )
 
@@ -94,7 +94,7 @@ def send_quote_request(request):
             'Cotization Request',
             message,
             'yoviajocondreamstrips@gmail.com',
-            ['rmoreno.ter@gmail.com'],
+            ['yoviajocondreamstrips@gmail.com'],
             fail_silently=False,
         )
 
