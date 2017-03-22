@@ -140,6 +140,7 @@ class DocumentType(models.Model):
 @python_2_unicode_compatible
 class TripGallery(models.Model):
     trip = models.ForeignKey(Trip, verbose_name='viaje')
+    main_photo = models.FileField(upload_to='galleries')
 
     def __str__(self):
         return self.trip.title

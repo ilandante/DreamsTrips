@@ -2,10 +2,10 @@
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from profiles.models import Profile
 from python_recipes import response_json
-from trips.models import GalleryImage
+from trips.models import GalleryImage, TripGallery
 
 __author__ = 'root'
 
@@ -127,7 +127,7 @@ class GalleryListView(ListView):
 
     def get_queryset(self, **kwargs):
         print self.request.GET
-        images = GalleryImage.objects.filter()
+        images = TripGallery.objects.filter()
 
         self.user = self.request.user
         return images
@@ -135,4 +135,27 @@ class GalleryListView(ListView):
     def get_context_data(self, **kwargs):
         context = super(GalleryListView, self).get_context_data(**kwargs)
 
+        return context
+
+
+class ViewGallery(DetailView):
+
+    template_name = 'single_trip_gallery.html'
+    pk = None
+    trip = None
+    user = None
+    gallery = None
+
+    def get_object(self, queryset=None):
+
+        self.pk = self.kwargs.get('gallery_pk', None)
+
+        if self.pk is not None:
+            self.gallery = GalleryImage.objects.filter(gallery=self.pk)
+        else:
+            raise AttributeError("PK No Encontrado")
+        return self.gallery
+
+    def get_context_data(self, **kwargs):
+        context = super(ViewGallery, self).get_context_data(**kwargs)
         return context
