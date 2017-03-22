@@ -5,8 +5,8 @@
     <div class="carousel" style="background-color: #4AB9B2;" align="center">
         {% for image in object_list %}
             <a class="carousel-item"  href="{% url 'single_trip_gallery' gallery_pk=image.pk %}">
-            {% if image.main_photograph %}
-                <img src="{{ image.main_photograph.url }}" style="height:100%; width:auto;">
+            {% if image.main_photo %}
+                <img src="{{ image.main_photo.url }}" style="height:100%; width:auto;">
             {% endif %}
             </a>
         {% endfor %}
