@@ -19,8 +19,8 @@ class TripGalleryAdmin(admin.ModelAdmin):
 
 
 class GalleryImageAdmin(admin.ModelAdmin):
-    search_fields = ['gallery']
-    list_display = ['photograph']
+    search_fields = ['gallery', 'pk']
+    list_display = ['photograph', 'pk', 'gallery']
 
 
 admin.site.register(Trip, TripsAdmin)
