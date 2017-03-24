@@ -94,7 +94,7 @@ def send_quote_request(request):
             'Cotization Request',
             message,
             'yoviajocondreamstrips@gmail.com',
-            ['yoviajocondreamstrips@gmail.com'],
+            ['rmoreno.ter@gmail.com'],
             fail_silently=False,
         )
 
