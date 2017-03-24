@@ -59,10 +59,10 @@ class DreamWorkersListView(ListView):
 def send_contact_message(request):
     if request.method == "POST":
         comment = request.POST.get('comment', None)
-        first_name = request.POST.get('comment', None)
-        last_name = request.POST.get('comment', None)
-        phone = request.POST.get('comment', None)
-        email = request.POST.get('comment', None)
+        first_name = request.POST.get('first_name', None)
+        last_name = request.POST.get('last_name', None)
+        phone = request.POST.get('phone', None)
+        email = request.POST.get('email', None)
 
         message = first_name + last_name + phone + email + comment
 
@@ -83,10 +83,10 @@ def send_contact_message(request):
 def send_quote_request(request):
     if request.method == "POST":
         comment = request.POST.get('comment', None)
-        first_name = request.POST.get('comment', None)
-        last_name = request.POST.get('comment', None)
-        phone = request.POST.get('comment', None)
-        email = request.POST.get('comment', None)
+        first_name = request.POST.get('first_name', None)
+        last_name = request.POST.get('last_name', None)
+        phone = request.POST.get('phone', None)
+        email = request.POST.get('email', None)
 
         message = first_name + last_name + phone + email + comment
 

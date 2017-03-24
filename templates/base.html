@@ -61,16 +61,16 @@
 
         <form id="contactForm" action="{% url 'send_contact_message' %}" method="post">
             {% csrf_token %}
-            <input id="first_name" type="text" class="validate">
+            <input id="first_name" type="text" class="validate" name="first_name">
             <label for="first_name">Nombre</label>
 
-            <input id="last_name" type="text" class="validate">
+            <input id="last_name" type="text" class="validate" name="last_name">
             <label for="last_name">Apellidos</label>
 
-            <input id="phone" type="text" class="validate">
+            <input id="phone" type="text" class="validate" name="phone">
             <label for="phone">Tel&eacute;efono</label>
 
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" class="validate" name="email">
             <label for="email">E-mail</label>
 
             <textarea id="comment" class="materialize-textarea" name="comment"></textarea>
@@ -89,14 +89,14 @@
         <h4>Pide tu cotizaci&oacute;n</h4>
 
         <form id="cotizationRequest">
-            <input id="first_name" type="text" class="validate">
+            <input id="first_name" type="text" class="validate" name="first_name">
             <label for="first_name">Nombre</label>
-            <input id="last_name" type="text" class="validate">
+            <input id="last_name" type="text" class="validate" name="last_name">
             <label for="last_name">Apellidos</label>
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" class="validate" name="email">
             <label for="email">E-mail</label>
-            <input id="email" type="email" class="validate">
-            <label for="email">Tel&eacute;fono</label>
+            <input id="phone" type="text" class="validate" name="phone">
+            <label for="phone">Tel&eacute;fono</label>
 
           <textarea
                   placeholder="Cuentanos sobre tu viaje perfecto y nosotros te contactaremos para hacerlo realidad."
