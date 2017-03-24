@@ -70,7 +70,7 @@ def send_contact_message(request):
             'Web Page Comment',
             message,
             'yoviajocondreamstrips@gmail.com',
-            ['yoviajocondreamstrips@gmail.com'],
+            ['rmoreno.ter@gmail.com'],
             fail_silently=False,
         )
 
