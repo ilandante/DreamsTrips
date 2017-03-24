@@ -5,7 +5,11 @@
          style="width:100%; padding-left:0; padding-right:0;">
     <div class="carousel" style="background-color: #4AB9B2;" align="center">
         {% for member in object_list %}
-            <a class="carousel-item">
+            {% if member.facebook_link %}
+                <a class="carousel-item" href="{{ member.facebook_link }}" target="_blank">
+            {% else %}
+                <a class="carousel-item">
+            {% endif %}
             {% if member.profile_pic %}
                 <img src="{{ member.profile_pic.url }}" style="height:auto; width:100%; border-radius:50%">
                 <span style="color:black">

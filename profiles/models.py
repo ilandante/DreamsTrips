@@ -111,6 +111,9 @@ class Profile(models.Model):
 
     is_dream_worker = models.BooleanField(default=0, verbose_name='es DreamWorker')
 
+    facebook_link = models.CharField(max_length=100, null=True, blank=True,
+                                     verbose_name='link a facebook')
+
     def __str__(self):
         return self.auth_user.get_full_name()
 
