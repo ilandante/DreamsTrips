@@ -144,7 +144,7 @@ STATICFILES_DIRS = (
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = "rmoreno.ter@gmail.com"
-EMAIL_HOST_PASSWORD = "fadetoblack13"
+EMAIL_HOST_USER = "yoviajocondreamstrips@gmail.com"
+EMAIL_HOST_PASSWORD = "DeleitandoVidas"
 EMAIL_PORT = 587
 
