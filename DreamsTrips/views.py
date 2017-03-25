@@ -64,8 +64,8 @@ def send_contact_message(request):
         phone = request.POST.get('phone', None)
         email = request.POST.get('email', None)
 
-        message = 'Nombre' +first_name + ' Apellido:' +last_name + ' <br>Telefono:' +\
-                  phone + ' <br>email:' +email + ' <br>Comentario:' +comment
+        message = 'Nombre: ' +first_name + ' Apellido: ' +last_name + ' Telefono: ' +\
+                  phone + ' email: ' +email + ' Comentario: ' +comment
 
         send_mail(
             'Web Page Comment',
@@ -89,8 +89,8 @@ def send_quote_request(request):
         phone = request.POST.get('phone', None)
         email = request.POST.get('email', None)
 
-        message = 'Nombre' +first_name + ' Apellido:' +last_name + ' <br>Telefono:' +\
-                  phone + ' <br>email:' +email + ' <br>Comentario:' +comment
+        message = 'Nombre: ' +first_name + ' Apellido: ' +last_name + ' Telefono: ' +\
+                  phone + ' email: ' +email + ' Comentario: ' +comment
 
         send_mail(
             'Cotization Request',
